@@ -7,13 +7,18 @@
         <!-- Названия стандартных команд и события на вызове -->
         <CommandBinding Command="New" Executed="NewCommandBinding_Executed" />
         <CommandBinding Command="Open" Executed="OpenCommandBinding_Executed" />
-        <!-- CanExecute указывает на метод, проверяющий условие доступности команды -->
-        <CommandBinding Command="Save" CanExecute="SaveCommandBinding_CanExecute" Executed="SaveCommandBinding_Executed" />
-        <CommandBinding Command="Close" CanExecute="CloseCommandBinding_CanExecute" Executed="CloseCommandBinding_Executed" />
+        <!-- CanExecute указывает на метод, проверяющий условие доступности
+        команды -->
+        <CommandBinding Command="Save" CanExecute="SaveCommandBinding_CanExecute"
+                        Executed="SaveCommandBinding_Executed" />
+        <CommandBinding Command="Close" CanExecute="CloseCommandBinding_CanExecute"
+                        Executed="CloseCommandBinding_Executed" />
     </Window.CommandBindings>
     <DockPanel LastChildFill="True">
-    <!-- LastChildFill - возможность заполнения свободной области последним дочерним элементом -->
-        <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Name="menu1" VerticalAlignment="Top" Width="Auto">
+    <!-- LastChildFill - возможность заполнения свободной области последним
+        дочерним элементом -->
+        <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Name="menu1" 
+              VerticalAlignment="Top" Width="Auto">
             <MenuItem Header="File">
                 <!-- К пунктам меню можно привязывать команды -->
                 <MenuItem Header="New" Command="New">
@@ -42,20 +47,26 @@
                 <MenuItem Name="menuExit" Header="Exit" Click="menuExit_Click" />
             </MenuItem>
             <MenuItem Header="Edit">
-                <!-- CommandTarget указывает на целевой элемент команды, вызываемой меню -->
-                <MenuItem Header="Undo" Command="Undo" CommandTarget="{Binding ElementName=rtxtText}"/>
-                <MenuItem Header="Redo" Command="Redo" CommandTarget="{Binding ElementName=rtxtText}"/>
-                <MenuItem Header="Copy" Command="Copy" CommandTarget="{Binding ElementName=rtxtText}"/>
-                <MenuItem Header="Paste" Command="Paste" CommandTarget="{Binding ElementName=rtxtText}"/>
-                <MenuItem Header="SelectAll" Command="SelectAll" CommandTarget="{Binding ElementName=rtxtText}"/>
+                <!-- CommandTarget указывает на целевой элемент команды,
+                вызываемой меню -->
+                <MenuItem Header="Undo" Command="Undo" />
+                <MenuItem Header="Redo" Command="Redo" />
+                <MenuItem Header="Copy" Command="Copy" />
+                <MenuItem Header="Paste" Command="Paste" />
+                <MenuItem Header="SelectAll" Command="SelectAll" />
             </MenuItem>
             <MenuItem Header="View">
-                <MenuItem Name="ToolbarShowHide" Header="Toolbar" IsChecked="True" IsCheckable="True" Click="ToolbarShowHide_Click" />
+                <MenuItem Name="ToolbarShowHide" Header="Toolbar" IsChecked="True" 
+                          IsCheckable="True" Click="ToolbarShowHide_Click" />
             </MenuItem>
             
         </Menu>
-        <!-- Значение флага видимости панели инструментов зависит от флага меню View -> Toolbar (то есть напрямую привязано к нему) -->
-        <ToolBar IsEnabled="{Binding ElementName=ToolbarEnabled, Path=IsChecked}" DockPanel.Dock="Top" Height="30" HorizontalAlignment="Stretch" Margin="0" Name="toolBar1" VerticalAlignment="Top" Width="Auto" >
+        <!-- 
+        Значение флага видимости панели инструментов зависит от флага 
+        меню View -> Toolbar (то есть напрямую привязано к нему) -->
+        <ToolBar IsEnabled="{Binding ElementName=ToolbarEnabled, Path=IsChecked}"
+                 DockPanel.Dock="Top" Height="30" HorizontalAlignment="Stretch"
+                 Margin="0" Name="toolBar1" VerticalAlignment="Top" Width="Auto" >
             <Button Name="btnNew" Command="New">
                 <Image Source="img/new.ico" />
             </Button>
